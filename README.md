@@ -1,56 +1,94 @@
-# Shadcn Landing Page Template
+# Kickup - Landing Page
 
-## <a href="https://ui.shadcn.com/" target="_blank">Shadcn</a> + <a href="https://nextjs.org/" target="_blank">Next.js</a> + <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> + <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.
+## 🚀 L'ESN nouvelle génération
 
-### This is a project conversion <a href="https://github.com/leoMirandaa/shadcn-vue-landing-page" target="_blank">Shadcn-Vue</a> to NextJS
+Landing page officielle de **Kickup**, partenaire digital sur mesure pour PME et ETI en croissance.
 
-![Alt text](./public/demo-img.jpg)
+## 🛠️ Stack Technique
 
-## Sections
+- **Framework** : [Next.js 14](https://nextjs.org/) (App Router)
+- **UI Library** : [Shadcn/ui](https://ui.shadcn.com/)
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/)
+- **Language** : [TypeScript](https://www.typescriptlang.org/)
+- **Icons** : [Lucide React](https://lucide.dev/)
 
-- [x] Navbar
-- [x] Sidebar(mobile)
-- [x] Hero
-- [x] Sponsors
-- [x] Benefits
-- [x] Features
-- [x] Testimonials
-- [x] Team
-- [x] Community
+## 📄 Sections
+
+- [x] Header avec navigation
+- [x] Hero section avec logo
+- [x] Services (Projets, Régie, Conseil)
+- [x] Avantages Kickup
 - [x] Contact
-- [x] Pricing
-- [x] Frequently Asked Questions(FAQ)
-- [x] Services
+- [x] FAQ
 - [x] Footer
 
-## Features
+## ✨ Fonctionnalités
 
-- [x] Fully Responsive Design
-- [x] User Friendly Navigation
-- [x] Dark Mode
+- [x] Design responsive (mobile-first)
+- [x] Mode sombre/clair
+- [x] Animations fluides
+- [x] Navigation mobile (sidebar)
+- [x] Formulaire de contact
+- [x] SEO optimisé
 
-## How to install
+## 🚀 Installation & Développement
 
-1. Clone this repositoy:
+### Prérequis
+- Node.js 18+ 
+- npm ou yarn
 
-```bash
-git clone https://github.com/nobruf/shadcn-landing-page.git
-```
-
-2. Go into project
-
-```bash
-cd shadcn-landing-page
-```
-
-3. Install dependencies
+### Installation
 
 ```bash
+# Cloner le repository
+git clone https://github.com/[username]/kickup-lp-v1.git
+
+# Aller dans le dossier
+cd kickup-lp-v1
+
+# Installer les dépendances
 npm install
-```
 
-4. Run project
-
-```bash
+# Lancer en développement
 npm run dev
 ```
+
+Le site sera disponible sur [http://localhost:3000](http://localhost:3000)
+
+### Commandes disponibles
+
+```bash
+# Développement
+npm run dev
+
+# Build de production
+npm run build
+
+# Lancer en production
+npm start
+
+# Linter
+npm run lint
+```
+
+## 🎨 Personnalisation
+
+### Logo
+- Placer vos logos dans `/public/`
+- `kickup-logo-round.png` : Header/Footer
+- `kickup-logo.png` : Hero section
+
+### Couleurs
+Les couleurs sont définies dans `app/globals.css` avec le thème Kickup (vert → violet).
+
+### Contenu
+Modifier les sections dans `components/layout/sections/`
+
+## 📞 Contact
+
+**Email** : contact@kick-up.eu  
+**Site** : https://kick-up.eu
+
+---
+
+© 2025 Kickup. Tous droits réservés.

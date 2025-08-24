@@ -1,5 +1,6 @@
 "use client";
-import { ChevronsDown, Github, Menu } from "lucide-react";
+import { Rocket, Menu } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 import {
   Sheet,
@@ -20,7 +21,6 @@ import {
 } from "../ui/navigation-menu";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import Image from "next/image";
 import { ToggleTheme } from "./toogle-theme";
 
 interface RouteProps {
@@ -28,19 +28,19 @@ interface RouteProps {
   label: string;
 }
 
-interface FeatureProps {
+interface ServiceProps {
   title: string;
   description: string;
 }
 
 const routeList: RouteProps[] = [
   {
-    href: "#testimonials",
-    label: "Testimonials",
+    href: "#services",
+    label: "Services",
   },
   {
-    href: "#team",
-    label: "Team",
+    href: "#benefits",
+    label: "Pourquoi Kickup",
   },
   {
     href: "#contact",
@@ -52,31 +52,38 @@ const routeList: RouteProps[] = [
   },
 ];
 
-const featureList: FeatureProps[] = [
+const serviceList: ServiceProps[] = [
   {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    title: "Projets clés en main",
+    description: "Sites, apps, logiciels sur mesure de A à Z",
   },
   {
-    title: "Build Trust",
-    description:
-      "Leverages social proof elements to establish trust and credibility.",
+    title: "Expertises en régie",
+    description: "Renforcez vos équipes avec nos talents tech",
   },
   {
-    title: "Capture Leads",
-    description:
-      "Make your lead capture form visually appealing and strategically.",
+    title: "Conseil & Accompagnement",
+    description: "Stratégie digitale et pilotage de projet",
   },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
-      <Link href="/" className="font-bold text-lg flex items-center">
-        <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-        Shadcn
+      <Link href="/" className="flex items-center">
+        <div className="w-10 h-10 relative">
+          <Image
+            src="/kickup-logo-round.png"
+            alt="Kickup"
+            width={40}
+            height={40}
+            className="w-full h-full object-contain"
+          />
+        </div>
       </Link>
+
       {/* <!-- Mobile --> */}
       <div className="flex items-center lg:hidden">
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -95,8 +102,15 @@ export const Navbar = () => {
               <SheetHeader className="mb-4 ml-4">
                 <SheetTitle className="flex items-center">
                   <Link href="/" className="flex items-center">
-                    <ChevronsDown className="bg-gradient-to-tr border-secondary from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white" />
-                    Shadcn
+                    <div className="w-10 h-10 relative">
+                      <Image
+                        src="/kickup-logo-round.png"
+                        alt="Kickup"
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   </Link>
                 </SheetTitle>
               </SheetHeader>
@@ -118,7 +132,6 @@ export const Navbar = () => {
 
             <SheetFooter className="flex-col sm:flex-col justify-start items-start">
               <Separator className="mb-2" />
-
               <ToggleTheme />
             </SheetFooter>
           </SheetContent>
@@ -130,22 +143,35 @@ export const Navbar = () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger className="bg-card text-base">
-              Features
+              Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <div className="grid w-[600px] grid-cols-2 gap-5 p-4">
-                <Image
-                  src="https://avatars.githubusercontent.com/u/75042455?v=4"
-                  alt="RadixLogo"
-                  className="h-full w-full rounded-md object-cover"
-                  width={600}
-                  height={600}
-                />
+              <div className="grid w-[500px] grid-cols-1 gap-3 p-4">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-emerald-50 to-purple-50 dark:from-emerald-950/20 dark:to-purple-950/20">
+                  <div className="w-12 h-12 relative flex-shrink-0">
+                    <Image
+                      src="/kickup-logo-round.png"
+                      alt="Kickup"
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">
+                      L'ESN nouvelle génération
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Partenaire digital sur mesure pour PME et ETI
+                    </p>
+                  </div>
+                </div>
+
                 <ul className="flex flex-col gap-2">
-                  {featureList.map(({ title, description }) => (
+                  {serviceList.map(({ title, description }) => (
                     <li
                       key={title}
-                      className="rounded-md p-3 text-sm hover:bg-muted"
+                      className="rounded-md p-3 text-sm hover:bg-muted transition-colors"
                     >
                       <p className="mb-1 font-semibold leading-none text-foreground">
                         {title}
@@ -163,7 +189,10 @@ export const Navbar = () => {
           <NavigationMenuItem>
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
-                <Link href={href} className="text-base px-2">
+                <Link
+                  href={href}
+                  className="text-base px-2 hover:text-primary transition-colors"
+                >
                   {label}
                 </Link>
               </NavigationMenuLink>
@@ -172,17 +201,15 @@ export const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex items-center gap-2">
         <ToggleTheme />
 
-        <Button asChild size="sm" variant="ghost" aria-label="View on GitHub">
-          <Link
-            aria-label="View on GitHub"
-            href="https://github.com/nobruf/shadcn-landing-page.git"
-            target="_blank"
-          >
-            <Github className="size-5" />
-          </Link>
+        <Button
+          asChild
+          size="sm"
+          className="bg-gradient-to-r from-emerald-500 to-purple-600 hover:from-emerald-600 hover:to-purple-700"
+        >
+          <Link href="#contact">Nous contacter</Link>
         </Button>
       </div>
     </header>
