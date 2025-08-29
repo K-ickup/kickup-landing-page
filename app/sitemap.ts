@@ -1,18 +1,18 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://kick-up.eu',
+      url: "https://kick-up.eu",
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: 'https://kick-up.eu/mentions-legales',
+      url: "https://kick-up.eu/mentions-legales",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 0.3,
     },
-  ]
+  ];
 }
