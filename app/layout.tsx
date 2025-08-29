@@ -8,9 +8,9 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kickup - Boost your digital projects",
+  title: "Kickup ESN - Développement sur mesure & Expertise en régie | Paris",
   description:
-    "L'ESN nouvelle génération pour PME et ETI en croissance. Partenaire digital sur mesure.",
+    "ESN spécialisée React, Node.js pour PME et ETI. Projets clés en main et consultants en régie. Partenaire digital sur mesure - Paris & France entière.",
 };
 
 export default function RootLayout({
