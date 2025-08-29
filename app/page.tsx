@@ -6,33 +6,33 @@ import { HeroSection } from "@/components/layout/sections/hero";
 import { ServicesSection } from "@/components/layout/sections/services";
 
 export const metadata = {
-  title: "Kickup ESN - Développement sur mesure & Expertise en régie | Paris",
+  title: "Kickup ESN - Solutions digitales sur mesure pour PME et ETI | Paris",
   description:
-    "ESN spécialisée React, Node.js pour PME et ETI. Projets clés en main et consultants en régie. Partenaire digital sur mesure - Paris & France entière.",
+    "ESN spécialisée dans l'accompagnement digital des PME et ETI. Sites web, applications métier, logiciels de gestion et consultants en régie. Partenaire de votre croissance digitale.",
   keywords:
-    "ESN, Kickup, développement React, consultant régie, ESN Paris, développement sur mesure PME, expertise JavaScript, Node.js, freelance React",
+    "ESN, Kickup, développement sur mesure PME, site web entreprise, application métier, logiciel gestion, consultant informatique, transformation digitale PME, ESN Paris",
   authors: [{ name: "Kickup ESN" }],
   openGraph: {
     type: "website",
     url: "https://kick-up.eu",
-    title: "Kickup ESN - L'ESN nouvelle génération",
+    title: "Kickup ESN - Partenaire digital des PME en croissance",
     description:
-      "Partenaire digital sur mesure pour PME et ETI. Solutions clés en main et expertises en régie.",
+      "Solutions digitales sur mesure : sites web, applications métier, logiciels de gestion. Consultants en régie pour renforcer vos équipes.",
     siteName: "Kickup ESN",
     images: [
       {
         url: "https://kick-up.eu/kickup-og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kickup - ESN nouvelle génération",
+        alt: "Kickup - Solutions digitales pour PME",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@KickupESN",
-    title: "Kickup ESN - Boost your digital projects",
-    description: "L'ESN nouvelle génération pour PME et ETI en croissance",
+    title: "Kickup ESN - Solutions digitales PME",
+    description: "Partenaire digital sur mesure pour PME et ETI en croissance",
     images: ["https://kick-up.eu/kickup-og-image.png"],
   },
   robots: {
@@ -45,9 +45,6 @@ export const metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
-  },
-  verification: {
-    google: "ton-code-google-search-console-ici",
   },
 };
 
