@@ -10,40 +10,22 @@ interface BenefitsProps {
 
 const benefitList: BenefitsProps[] = [
   {
+    icon: "Code2",
+    title: "On code vraiment, pas de no-code",
+    description:
+      "Développement sur-mesure React/TypeScript. Pas de templates Bubble/Webflow + plugin ChatGPT. Applications scalables et maintenables, intégration profonde à vos systèmes, propriété totale de votre code, évolutivité garantie sans refonte.",
+  },
+  {
+    icon: "Shield",
+    title: "Architecture production-ready dès le départ",
+    description:
+      "Pas de POC jetable qui ne passera jamais en prod. Notre code est pensé pour durer. Tests automatisés et code documenté, monitoring et observabilité intégrés, sécurité et RGPD natifs, performance optimisée dès le jour 1.",
+  },
+  {
     icon: "Zap",
-    title: "Mindset Startup",
+    title: "Livraison rapide, ROI immédiat",
     description:
-      "Agilité et réactivité d'une startup dans l'univers ESN traditionnel. Décisions rapides, pas de bureaucratie.",
-  },
-  {
-    icon: "MessageSquare",
-    title: "On parle business",
-    description:
-      "Nous comprenons vos enjeux métier avant tout. Solutions alignées sur votre croissance, pas juste de la tech.",
-  },
-  {
-    icon: "Users",
-    title: "Relation directe",
-    description:
-      "Pas d'intermédiaire commercial. Contact direct avec les décideurs. Communication fluide et transparente.",
-  },
-  {
-    icon: "Rocket",
-    title: "Ultra-réactif",
-    description:
-      "On s'adapte à votre rythme. Mise en œuvre rapide, livraisons fréquentes, feedback continu.",
-  },
-  {
-    icon: "Handshake",
-    title: "Partenariat long terme",
-    description:
-      "On grandit avec vous. Contrats pluriannuels, relation de confiance, accompagnement dans la durée.",
-  },
-  {
-    icon: "Award",
-    title: "Expertise confirmée",
-    description:
-      "Équipe expérimentée sur les technologies modernes et les grands comptes. Qualité professionnelle garantie.",
+      "Premier agent en production en 3 semaines. Premiers gains de productivité mesurables sous 1 mois. Méthodologie agile (sprints de 1-2 semaines), démos hebdomadaires, vous validez on itère, support & maintenance inclus.",
   },
 ];
 
@@ -51,17 +33,15 @@ export const BenefitsSection = () => {
   return (
     <section id="benefits" className="container py-24 sm:py-32">
       <div className="text-center mb-16">
-        <h2 className="text-lg text-primary mb-2 tracking-wider">Avantages</h2>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Pourquoi Kickup ?
+        <h2 className="text-lg text-primary mb-2 tracking-wider">
+          Différenciation
         </h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          L'ESN nouvelle génération qui combine l'agilité startup avec
-          l'expertise technique pour accélérer votre transformation digitale.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Pourquoi choisir Kickup ?
+        </h2>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 w-full">
         {benefitList.map(({ icon, title, description }, index) => (
           <Card
             key={title}

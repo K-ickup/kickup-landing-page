@@ -1,38 +1,44 @@
 import { BenefitsSection } from "@/components/layout/sections/benefits";
-import { ContactSection } from "@/components/layout/sections/contact";
+import { ContactFormSection } from "@/components/layout/sections/contact-form";
+import { CTAFinalSection } from "@/components/layout/sections/cta-final";
 import { FAQSection } from "@/components/layout/sections/faq";
 import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
+import { ProcessSection } from "@/components/layout/sections/process";
 import { ServicesSection } from "@/components/layout/sections/services";
+import { TechStackSection } from "@/components/layout/sections/tech-stack";
+import { UseCasesSection } from "@/components/layout/sections/use-cases";
 
 export const metadata = {
-  title: "Kickup ESN - Solutions digitales sur mesure pour PME et ETI | Paris",
+  title:
+    "Kickup ESN IA - Applications web & Solutions IA sur-mesure | React, TypeScript, Agents intelligents",
   description:
-    "ESN spécialisée dans l'accompagnement digital des PME et ETI. Sites web, applications métier, logiciels de gestion et consultants en régie. Partenaire de votre croissance digitale.",
+    "ESN spécialisée IA : développement d'applications React et déploiement d'agents IA pour PME et ETI. De la qualification de leads à l'automatisation support : solutions sur-mesure qui passent en production.",
   keywords:
-    "ESN, Kickup, développement sur mesure PME, site web entreprise, application métier, logiciel gestion, consultant informatique, transformation digitale PME, ESN Paris",
-  authors: [{ name: "Kickup ESN" }],
+    "ESN IA, ESN Paris, ESN spécialisée IA, développement React, applications web sur-mesure, agents IA, automatisation IA, TypeScript, Next.js, LangChain, OpenAI, Anthropic Claude, qualification leads IA, support client automatisé, workflow automation, PME ETI",
+  authors: [{ name: "Kickup ESN IA" }],
   openGraph: {
     type: "website",
     url: "https://kick-up.eu",
-    title: "Kickup ESN - Partenaire digital des PME en croissance",
+    title: "Kickup ESN IA - Applications web & Solutions IA sur-mesure",
     description:
-      "Solutions digitales sur mesure : sites web, applications métier, logiciels de gestion. Consultants en régie pour renforcer vos équipes.",
-    siteName: "Kickup ESN",
+      "ESN spécialisée en développement web et intelligence artificielle. Du développement web au déploiement d'agents intelligents. Nous créons des solutions digitales qui automatisent vos processus métiers.",
+    siteName: "Kickup ESN IA",
     images: [
       {
         url: "https://kick-up.eu/kickup-og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kickup - Solutions digitales pour PME",
+        alt: "Kickup ESN IA - Applications web & Solutions IA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@KickupESN",
-    title: "Kickup ESN - Solutions digitales PME",
-    description: "Partenaire digital sur mesure pour PME et ETI en croissance",
+    title: "Kickup - Applications web & Solutions IA sur-mesure",
+    description:
+      "Du développement web au déploiement d'agents intelligents. Nous créons des solutions digitales qui automatisent vos processus métiers.",
     images: ["https://kick-up.eu/kickup-og-image.png"],
   },
   robots: {
@@ -53,8 +59,12 @@ export default function Home() {
     <>
       <HeroSection />
       <ServicesSection />
+      <UseCasesSection />
       <BenefitsSection />
-      <ContactSection />
+      <TechStackSection />
+      <ProcessSection />
+      <CTAFinalSection />
+      <ContactFormSection />
       <FAQSection />
       <FooterSection />
     </>

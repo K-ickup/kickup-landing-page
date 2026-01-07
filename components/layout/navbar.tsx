@@ -35,16 +35,16 @@ interface ServiceProps {
 
 const routeList: RouteProps[] = [
   {
-    href: "#services",
-    label: "Services",
+    href: "#use-cases",
+    label: "Cas clients",
   },
   {
     href: "#benefits",
     label: "Pourquoi Kickup",
   },
   {
-    href: "#contact",
-    label: "Contact",
+    href: "#process",
+    label: "Notre méthode",
   },
   {
     href: "#faq",
@@ -54,16 +54,16 @@ const routeList: RouteProps[] = [
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Projets clés en main",
-    description: "Sites, apps, logiciels sur mesure de A à Z",
+    title: "Développement web sur-mesure",
+    description: "Applications React/Next.js production-ready pour PME et ETI",
   },
   {
-    title: "Expertises en régie",
-    description: "Renforcez vos équipes avec nos talents tech",
+    title: "Applications avec IA embarquée",
+    description: "Solutions intelligentes intégrées à vos processus métiers",
   },
   {
-    title: "Conseil & Accompagnement",
-    description: "Stratégie digitale et pilotage de projet",
+    title: "Agents IA autonomes",
+    description: "Automatisation de workflows avec LLMs et intégrations",
   },
 ];
 
@@ -159,26 +159,28 @@ export const Navbar = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-foreground">
-                      L'ESN nouvelle génération
+                      Applications web & Solutions IA
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Partenaire digital sur mesure pour PME et ETI
+                      Du code sur-mesure pour PME et ETI
                     </p>
                   </div>
                 </div>
 
                 <ul className="flex flex-col gap-2">
                   {serviceList.map(({ title, description }) => (
-                    <li
-                      key={title}
-                      className="rounded-md p-3 text-sm hover:bg-muted transition-colors"
-                    >
-                      <p className="mb-1 font-semibold leading-none text-foreground">
-                        {title}
-                      </p>
-                      <p className="line-clamp-2 text-muted-foreground">
-                        {description}
-                      </p>
+                    <li key={title}>
+                      <Link
+                        href="#services"
+                        className="block rounded-md p-3 text-sm hover:bg-muted transition-colors"
+                      >
+                        <p className="mb-1 font-semibold leading-none text-foreground">
+                          {title}
+                        </p>
+                        <p className="line-clamp-2 text-muted-foreground">
+                          {description}
+                        </p>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -186,12 +188,12 @@ export const Navbar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
+          <NavigationMenuItem className="flex items-center gap-6">
             {routeList.map(({ href, label }) => (
               <NavigationMenuLink key={href} asChild>
                 <Link
                   href={href}
-                  className="text-base px-2 hover:text-primary transition-colors"
+                  className="text-base hover:text-primary transition-colors"
                 >
                   {label}
                 </Link>

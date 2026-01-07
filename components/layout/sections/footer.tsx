@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Rocket, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,10 +21,12 @@ export const FooterSection = () => {
               </div>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
-              L'ESN nouvelle génération pour PME et ETI en croissance.
+              Applications modernes & Solutions IA
             </p>
-            <p className="text-sm font-semibold bg-gradient-to-r from-emerald-400 to-purple-600 bg-clip-text text-transparent">
-              Boost your digital projects
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Nous aidons les PME et ETI à automatiser leurs processus métiers
+              grâce au développement web sur-mesure et à l'intelligence
+              artificielle.
             </p>
           </div>
 
@@ -35,7 +37,7 @@ export const FooterSection = () => {
                 href="#services"
                 className="opacity-60 hover:opacity-100 text-sm transition-opacity"
               >
-                Projets clés en main
+                Développement web
               </Link>
             </div>
             <div>
@@ -43,7 +45,7 @@ export const FooterSection = () => {
                 href="#services"
                 className="opacity-60 hover:opacity-100 text-sm transition-opacity"
               >
-                Expertises en régie
+                Solutions IA intégrées
               </Link>
             </div>
             <div>
@@ -51,13 +53,29 @@ export const FooterSection = () => {
                 href="#services"
                 className="opacity-60 hover:opacity-100 text-sm transition-opacity"
               >
-                Conseil & Accompagnement
+                Agents autonomes
+              </Link>
+            </div>
+            <div>
+              <Link
+                href="#contact"
+                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
+              >
+                Audit gratuit
               </Link>
             </div>
           </div>
 
           <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-lg mb-2">À propos</h3>
+            <h3 className="font-bold text-lg mb-2">Ressources</h3>
+            <div>
+              <Link
+                href="#use-cases"
+                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
+              >
+                Cas clients
+              </Link>
+            </div>
             <div>
               <Link
                 href="#benefits"
@@ -68,18 +86,26 @@ export const FooterSection = () => {
             </div>
             <div>
               <Link
-                href="#faq"
+                href="#process"
                 className="opacity-60 hover:opacity-100 text-sm transition-opacity"
               >
-                FAQ
+                Notre méthode
               </Link>
             </div>
             <div>
               <Link
-                href="#contact"
+                href="#tech-stack"
                 className="opacity-60 hover:opacity-100 text-sm transition-opacity"
               >
-                Contact
+                Technologies
+              </Link>
+            </div>
+            <div>
+              <Link
+                href="#faq"
+                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
+              >
+                FAQ
               </Link>
             </div>
           </div>
@@ -96,13 +122,21 @@ export const FooterSection = () => {
                 contact@kick-up.eu
               </Link>
             </div>
+
+            <div className="flex items-start gap-2 text-sm text-muted-foreground">
+              <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+              <div>
+                <p>Basé à Paris, France</p>
+                <p>Interventions nationales & remote</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <Separator className="my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>&copy; 2025 Kickup. Tous droits réservés.</div>
+          <div>&copy; 2026 Kickup (2MS-IT EURL). Tous droits réservés.</div>
 
           <div className="flex gap-6">
             <Link

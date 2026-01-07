@@ -1,4 +1,4 @@
-import { icons } from "lucide-react";
+import * as LucideIcons from "lucide-react";
 
 export const Icon = ({
   name,
@@ -6,12 +6,21 @@ export const Icon = ({
   size,
   className,
 }: {
-  name: keyof typeof icons;
+  name: keyof typeof LucideIcons;
   color: string;
   size: number;
   className?: string;
 }) => {
-  const LucideIcon = icons[name as keyof typeof icons];
+  const LucideIcon = LucideIcons[name] as React.ComponentType<{
+    color?: string;
+    size?: number;
+    className?: string;
+  }>;
+
+  if (!LucideIcon) {
+    console.error(`Icon "${name}" not found in lucide-react`);
+    return null;
+  }
 
   return <LucideIcon color={color} size={size} className={className} />;
 };

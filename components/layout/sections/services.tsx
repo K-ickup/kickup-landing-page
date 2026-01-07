@@ -1,56 +1,65 @@
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
   CardContent,
+  CardFooter,
 } from "@/components/ui/card";
-import { Target, Users, Rocket } from "lucide-react";
+import { Code2, Brain, Workflow, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface ServiceProps {
   title: string;
   description: string;
   icon: React.ElementType;
   features: string[];
+  stack?: string;
+  cta: string;
 }
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Projets clés en main",
+    title: "Développement d'applications web sur-mesure",
     description:
-      "Du site vitrine au logiciel métier, nous réalisons vos projets digitaux de A à Z.",
-    icon: Target,
+      "Applications React/Next.js pensées pour durer. Architecture scalable, code maintenable, interfaces modernes.",
+    icon: Code2,
     features: [
-      "Sites web & e-commerce",
-      "Applications mobiles",
-      "Logiciels de gestion",
-      "Plateformes sur-mesure",
+      "Dashboards et outils de pilotage",
+      "CRM et outils métiers personnalisés",
+      "Plateformes e-commerce évolutives",
+      "Applications SaaS multi-tenants",
     ],
+    stack: "React, Next.js, TypeScript, Tailwind CSS, PostgreSQL",
+    cta: "Discutons de votre projet",
   },
   {
-    title: "Expertises en régie",
+    title: "Applications intelligentes avec IA embarquée",
     description:
-      "Renforcez vos équipes avec nos talents tech adaptés à vos besoins.",
-    icon: Users,
+      "Ajoutez de l'intelligence à vos outils existants. Agents IA intégrés nativement dans vos applications.",
+    icon: Brain,
     features: [
-      "Développeurs fullstack",
-      "DevOps & Cloud",
-      "Data & IA",
-      "Cybersécurité",
+      "Assistant métier contextuel dans vos apps",
+      "Recommandations personnalisées automatiques",
+      "Analyse prédictive et aide à la décision",
+      "Chatbots intelligents intégrés à votre interface",
     ],
+    cta: "Explorer les possibilités",
   },
   {
-    title: "Conseil & Accompagnement",
+    title: "Agents IA autonomes pour vos workflows métiers",
     description:
-      "Stratégie digitale, architecture technique, pilotage de projet.",
-    icon: Rocket,
+      "Automatisez vos tâches répétitives avec des agents intelligents. Déploiement rapide, ROI mesurable sous 4 semaines.",
+    icon: Workflow,
     features: [
-      "Audit technique",
-      "Stratégie digitale",
-      "Architecture système",
-      "Pilotage de projet",
+      "Qualification automatique de leads (scoring + enrichissement)",
+      "Support client tier 1 (FAQ + routing intelligent)",
+      "Automatisation de workflows internes",
+      "Analyse et synthèse de documents/emails",
     ],
+    stack: "OpenAI, Anthropic, LangChain, n8n, Mastra",
+    cta: "Réserver un audit gratuit",
   },
 ];
 
@@ -59,18 +68,20 @@ export const ServicesSection = () => {
     <section id="services" className="container py-24 sm:py-32">
       <div className="text-center mb-16">
         <h2 className="text-lg text-primary mb-2 tracking-wider">Services</h2>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Services</h2>
-        <h3 className="md:w-1/2 mx-auto text-xl text-muted-foreground">
-          Solutions complètes et expertises à la demande pour accompagner votre
-          croissance digitale.
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Nos expertises : développement & intelligence artificielle
+        </h2>
+        <h3 className="md:w-2/3 mx-auto text-xl text-muted-foreground">
+          Nous combinons développement d'applications modernes et intégration
+          d'IA pour créer des solutions qui évoluent avec vos besoins.
         </h3>
       </div>
 
       <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-8 w-full">
-        {serviceList.map(({ title, description, icon: Icon, features }) => (
+        {serviceList.map(({ title, description, icon: Icon, features, stack, cta }) => (
           <Card
             key={title}
-            className="bg-muted/60 dark:bg-card h-full hover:shadow-lg transition-all duration-300 hover:scale-105"
+            className="bg-muted/60 dark:bg-card h-full hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col"
           >
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -81,19 +92,43 @@ export const ServicesSection = () => {
                 {description}
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                {features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center text-sm text-muted-foreground"
-                  >
-                    <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-purple-600 rounded-full mr-3 flex-shrink-0"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            <CardContent className="flex-1">
+              <div className="mb-4">
+                <p className="text-sm font-semibold mb-3 text-foreground">
+                  {title.includes("web") ? "Idéal pour :" : title.includes("intelligentes") ? "Cas d'usage :" : "Agents que nous déployons :"}
+                </p>
+                <ul className="space-y-2">
+                  {features.map((feature, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start text-sm text-muted-foreground"
+                    >
+                      <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 to-purple-600 rounded-full mr-3 flex-shrink-0 mt-1.5"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {stack && (
+                <div className="mt-6 pt-4 border-t border-border">
+                  <p className="text-xs text-muted-foreground">
+                    <span className="font-semibold">Stack :</span> {stack}
+                  </p>
+                </div>
+              )}
             </CardContent>
+            <CardFooter className="pt-0">
+              <Button
+                asChild
+                variant="outline"
+                className="w-full group hover:bg-gradient-to-r hover:from-emerald-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all"
+              >
+                <Link href="#contact">
+                  {cta}
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </div>
