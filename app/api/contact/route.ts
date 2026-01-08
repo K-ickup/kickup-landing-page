@@ -27,10 +27,7 @@ export async function POST(req: NextRequest) {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Email invalide" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Email invalide" }, { status: 400 });
     }
 
     // Build email content
@@ -58,8 +55,9 @@ Reçu le : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: "Kickup Contact <onboarding@resend.dev>", // Replace with your verified domain
-      to: ["jeremydumascontact@gmail.com"], // TODO: Change back to contact@kick-up.eu once domain is verified
+      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      to: [process.env.CONTACT_EMAIL || "contact@kick-up.eu"],
+      replyTo: email,
       subject: `Nouvelle demande : ${besoin} - ${entreprise}`,
       text: emailContent,
     });
@@ -78,9 +76,6 @@ Reçu le : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}
     );
   } catch (error) {
     console.error("Contact API error:", error);
-    return NextResponse.json(
-      { error: "Erreur serveur" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
   }
 }

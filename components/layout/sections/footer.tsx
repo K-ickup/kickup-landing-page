@@ -126,8 +126,8 @@ export const FooterSection = () => {
             <div className="flex items-start gap-2 text-sm text-muted-foreground">
               <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
               <div>
-                <p>Basé à Paris, France</p>
-                <p>Interventions nationales & remote</p>
+                <p>Paris, France</p>
+                <p>Interventions Europe & remote</p>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ export const FooterSection = () => {
         <Separator className="my-6" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>&copy; 2026 Kickup (2MS-IT EURL). Tous droits réservés.</div>
+          <div>&copy; 2026 Kickup. Tous droits réservés.</div>
 
           <div className="flex gap-6">
             <Link

@@ -23,7 +23,16 @@ export default function MentionsLegales() {
             <p>
               Ce site est hébergé par <strong>Vercel Inc.</strong>
               <br />
-              340 S Lemon Ave #4133, Walnut, CA 91789, USA
+              Infrastructure : Vercel Edge Network (Europe - Frankfurt, Germany)
+              <br />
+              Siège social : 340 S Lemon Ave #4133, Walnut, CA 91789, USA
+              <br />
+              <br />
+              <em className="text-sm text-muted-foreground">
+                Les données des utilisateurs européens sont stockées et traitées
+                exclusivement sur des serveurs situés dans l&apos;Union Européenne
+                (région Frankfurt) en conformité avec le RGPD.
+              </em>
             </p>
           </section>
 

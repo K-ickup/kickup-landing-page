@@ -215,7 +215,7 @@ Pour toute suggestion ou bug report, contactez-nous à dev@kick-up.eu
 
 © 2025 Kickup (2MS-IT EURL). Tous droits réservés.
 
-**Structure juridique :** EURL - Siret [à compléter]  
+**Structure juridique :** EURL - Siren 949 256 762  
 **Domiciliation :** Paris, France
 
 ---
