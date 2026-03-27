@@ -1,45 +1,46 @@
-import { BenefitsSection } from "@/components/layout/sections/benefits";
-import { ContactFormSection } from "@/components/layout/sections/contact-form";
-import { CTAFinalSection } from "@/components/layout/sections/cta-final";
-import { FAQSection } from "@/components/layout/sections/faq";
-import { FooterSection } from "@/components/layout/sections/footer";
 import { HeroSection } from "@/components/layout/sections/hero";
-import { ProcessSection } from "@/components/layout/sections/process";
+import { ClientsBand } from "@/components/layout/sections/clients-band";
 import { ServicesSection } from "@/components/layout/sections/services";
-import { TechStackSection } from "@/components/layout/sections/tech-stack";
 import { UseCasesSection } from "@/components/layout/sections/use-cases";
+import { BenefitsSection } from "@/components/layout/sections/benefits";
+import { TechStackSection } from "@/components/layout/sections/tech-stack";
+import { TestimonialsSection } from "@/components/layout/sections/testimonials";
+import { AboutSection } from "@/components/layout/sections/about";
+import { ProcessSection } from "@/components/layout/sections/process";
+import { CTABanner } from "@/components/layout/sections/cta-banner";
+import { FAQSection } from "@/components/layout/sections/faq";
+import { ContactSection } from "@/components/layout/sections/contact";
+import { FooterSection } from "@/components/layout/sections/footer";
 
 export const metadata = {
-  title:
-    "Kickup ESN IA - Applications web & Solutions IA sur-mesure | React, TypeScript, Agents intelligents",
+  title: "Kickup - Studio IA & Dev · Applications sur-mesure",
   description:
-    "ESN spécialisée IA : développement d'applications React et déploiement d'agents IA pour PME et ETI. De la qualification de leads à l'automatisation support : solutions sur-mesure qui passent en production.",
+    "Kickup est un studio spécialisé en développement sur-mesure et agents IA. Applications production-ready livrées en 3 semaines pour PME et ETI.",
   keywords:
-    "ESN IA, ESN Paris, ESN spécialisée IA, développement React, applications web sur-mesure, agents IA, automatisation IA, TypeScript, Next.js, LangChain, OpenAI, Anthropic Claude, qualification leads IA, support client automatisé, workflow automation, PME ETI",
-  authors: [{ name: "Kickup ESN IA" }],
+    "studio IA, développement React, TypeScript, agents IA, automatisation, PME, ETI, Next.js",
+  authors: [{ name: "Kickup" }],
   openGraph: {
     type: "website",
-    url: "https://kick-up.eu",
-    title: "Kickup ESN IA - Applications web & Solutions IA sur-mesure",
+    url: "https://kickup.studio",
+    title: "Kickup - Studio IA & Dev · Applications sur-mesure",
     description:
-      "ESN spécialisée en développement web et intelligence artificielle. Du développement web au déploiement d'agents intelligents. Nous créons des solutions digitales qui automatisent vos processus métiers.",
-    siteName: "Kickup ESN IA",
+      "Studio spécialisé en développement sur-mesure et agents IA. Applications production-ready livrées en 3 semaines.",
+    siteName: "Kickup",
     images: [
       {
-        url: "https://kick-up.eu/kickup-og-image.png",
+        url: "https://kickup.studio/kickup-og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kickup ESN IA - Applications web & Solutions IA",
+        alt: "Kickup - Studio IA & Dev",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@KickupESN",
-    title: "Kickup - Applications web & Solutions IA sur-mesure",
+    title: "Kickup - Studio IA & Dev · Applications sur-mesure",
     description:
-      "Du développement web au déploiement d'agents intelligents. Nous créons des solutions digitales qui automatisent vos processus métiers.",
-    images: ["https://kick-up.eu/kickup-og-image.png"],
+      "Studio spécialisé en développement sur-mesure et agents IA. Applications production-ready livrées en 3 semaines.",
+    images: ["https://kickup.studio/kickup-og-image.png"],
   },
   robots: {
     index: true,
@@ -58,14 +59,17 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      <ClientsBand />
       <ServicesSection />
       <UseCasesSection />
       <BenefitsSection />
       <TechStackSection />
+      <TestimonialsSection />
+      <AboutSection />
       <ProcessSection />
-      <CTAFinalSection />
-      <ContactFormSection />
+      <CTABanner />
       <FAQSection />
+      <ContactSection />
       <FooterSection />
     </>
   );

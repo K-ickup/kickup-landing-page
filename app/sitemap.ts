@@ -3,13 +3,13 @@ import { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://kick-up.eu",
+      url: "https://kickup.studio",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://kick-up.eu/mentions-legales",
+      url: "https://kickup.studio/mentions-legales",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.3,

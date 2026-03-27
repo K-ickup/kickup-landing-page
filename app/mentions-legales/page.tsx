@@ -39,9 +39,9 @@ export default function MentionsLegales() {
           <section>
             <h2 className="text-2xl font-bold mb-4">Contact</h2>
             <p>
-              <strong>Email :</strong> contact@kick-up.eu
+              <strong>Email :</strong> contact@kickup.studio
               <br />
-              <strong>Site web :</strong> https://kick-up.eu
+              <strong>Site web :</strong> https://kickup.studio
             </p>
           </section>
 
@@ -68,7 +68,7 @@ export default function MentionsLegales() {
             <h2 className="text-2xl font-bold mb-4">Données personnelles</h2>
             <p>
               Kickup s'engage à ce que la collecte et le traitement de vos
-              données, effectués à partir du site kick-up.eu, soient conformes
+              données, effectués à partir du site kickup.studio, soient conformes
               au règlement général sur la protection des données (RGPD) et à la
               loi Informatique et Libertés.
             </p>

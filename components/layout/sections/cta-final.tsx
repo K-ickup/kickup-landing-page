@@ -40,9 +40,9 @@ export const CTAFinalSection = () => {
                 variant="outline"
                 className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-8 py-6"
               >
-                <Link href="mailto:contact@kick-up.eu">
+                <Link href="mailto:contact@kickup.studio">
                   <Mail className="mr-2 w-5 h-5" />
-                  contact@kick-up.eu
+                  contact@kickup.studio
                 </Link>
               </Button>
             </div>

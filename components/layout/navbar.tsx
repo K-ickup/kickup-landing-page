@@ -1,219 +1,183 @@
 "use client";
-import { Rocket, Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "../ui/sheet";
-import { Separator } from "../ui/separator";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
-import { Button } from "../ui/button";
 import Link from "next/link";
-import { ToggleTheme } from "./toogle-theme";
+import React from "react";
 
 interface RouteProps {
   href: string;
   label: string;
 }
 
-interface ServiceProps {
-  title: string;
-  description: string;
-}
-
 const routeList: RouteProps[] = [
-  {
-    href: "#use-cases",
-    label: "Cas clients",
-  },
-  {
-    href: "#benefits",
-    label: "Pourquoi Kickup",
-  },
-  {
-    href: "#process",
-    label: "Notre méthode",
-  },
-  {
-    href: "#faq",
-    label: "FAQ",
-  },
-];
-
-const serviceList: ServiceProps[] = [
-  {
-    title: "Développement web sur-mesure",
-    description: "Applications React/Next.js production-ready pour PME et ETI",
-  },
-  {
-    title: "Applications avec IA embarquée",
-    description: "Solutions intelligentes intégrées à vos processus métiers",
-  },
-  {
-    title: "Agents IA autonomes",
-    description: "Automatisation de workflows avec LLMs et intégrations",
-  },
+  { href: "#services", label: "Services" },
+  { href: "#use-cases", label: "Cas clients" },
+  { href: "#testimonials", label: "Témoignages" },
+  { href: "#about", label: "À propos" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="shadow-inner bg-opacity-15 w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border border-secondary z-40 rounded-2xl flex justify-between items-center p-2 bg-card">
-      <Link href="/" className="flex items-center">
-        <div className="w-10 h-10 relative">
+    <>
+      <header
+        style={{
+          position: "fixed",
+          top: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "90%",
+          maxWidth: "1100px",
+          zIndex: 50,
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          backgroundColor: "rgba(8, 12, 16, 0.85)",
+          border: "1px solid var(--border)",
+          borderRadius: "14px",
+          padding: "10px 20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {/* Logo */}
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <Image
             src="/kickup-logo-round.png"
             alt="Kickup"
-            width={40}
-            height={40}
-            className="w-full h-full object-contain"
+            width={36}
+            height={36}
+            style={{ objectFit: "contain" }}
           />
-        </div>
-      </Link>
-
-      {/* <!-- Mobile --> */}
-      <div className="flex items-center lg:hidden">
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Menu
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer lg:hidden"
-            />
-          </SheetTrigger>
-
-          <SheetContent
-            side="left"
-            className="flex flex-col justify-between rounded-tr-2xl rounded-br-2xl bg-card border-secondary"
+          <span
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 800,
+              fontSize: "1.1rem",
+              color: "var(--text)",
+              letterSpacing: "-0.02em",
+            }}
           >
-            <div>
-              <SheetHeader className="mb-4 ml-4">
-                <SheetTitle className="flex items-center">
-                  <Link href="/" className="flex items-center">
-                    <div className="w-10 h-10 relative">
-                      <Image
-                        src="/kickup-logo-round.png"
-                        alt="Kickup"
-                        width={40}
-                        height={40}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  </Link>
-                </SheetTitle>
-              </SheetHeader>
+            Kickup
+          </span>
+        </Link>
 
-              <div className="flex flex-col gap-2">
-                {routeList.map(({ href, label }) => (
-                  <Button
-                    key={href}
-                    onClick={() => setIsOpen(false)}
-                    asChild
-                    variant="ghost"
-                    className="justify-start text-base"
-                  >
-                    <Link href={href}>{label}</Link>
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <SheetFooter className="flex-col sm:flex-col justify-start items-start">
-              <Separator className="mb-2" />
-              <ToggleTheme />
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
-
-      {/* <!-- Desktop --> */}
-      <NavigationMenu className="hidden lg:block mx-auto">
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="bg-card text-base">
-              Services
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <div className="grid w-[500px] grid-cols-1 gap-3 p-4">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-emerald-50 to-purple-50 dark:from-emerald-950/20 dark:to-purple-950/20">
-                  <div className="w-12 h-12 relative flex-shrink-0">
-                    <Image
-                      src="/kickup-logo-round.png"
-                      alt="Kickup"
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      Applications web & Solutions IA
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Du code sur-mesure pour PME et ETI
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="flex flex-col gap-2">
-                  {serviceList.map(({ title, description }) => (
-                    <li key={title}>
-                      <Link
-                        href="#services"
-                        className="block rounded-md p-3 text-sm hover:bg-muted transition-colors"
-                      >
-                        <p className="mb-1 font-semibold leading-none text-foreground">
-                          {title}
-                        </p>
-                        <p className="line-clamp-2 text-muted-foreground">
-                          {description}
-                        </p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-
-          <NavigationMenuItem className="flex items-center gap-6">
-            {routeList.map(({ href, label }) => (
-              <NavigationMenuLink key={href} asChild>
-                <Link
-                  href={href}
-                  className="text-base hover:text-primary transition-colors"
-                >
-                  {label}
-                </Link>
-              </NavigationMenuLink>
-            ))}
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-
-      <div className="hidden lg:flex items-center gap-2">
-        <ToggleTheme />
-
-        <Button
-          asChild
-          size="sm"
-          className="bg-gradient-to-r from-emerald-500 to-purple-600 hover:from-emerald-600 hover:to-purple-700"
+        {/* Desktop nav */}
+        <nav
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "2rem",
+          }}
+          className="hidden lg:flex"
         >
-          <Link href="#contact">Nous contacter</Link>
-        </Button>
-      </div>
-    </header>
+          {routeList.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.9rem",
+                color: "var(--muted)",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+                fontWeight: 500,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* CTA desktop */}
+        <Link
+          href="#contact"
+          className="hidden lg:inline-flex btn-accent"
+          style={{ fontSize: "0.875rem", padding: "0.6rem 1.25rem" }}
+        >
+          Audit gratuit →
+        </Link>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden"
+          style={{
+            background: "none",
+            border: "none",
+            color: "var(--text)",
+            cursor: "pointer",
+            padding: "4px",
+          }}
+          aria-label="Menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </header>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: "80px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90%",
+            maxWidth: "1100px",
+            zIndex: 49,
+            backgroundColor: "var(--bg2)",
+            border: "1px solid var(--border)",
+            borderRadius: "14px",
+            padding: "1.5rem",
+            display: "flex",
+            flexDirection: "column",
+            gap: "0.5rem",
+          }}
+          className="lg:hidden"
+        >
+          {routeList.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "1rem",
+                color: "var(--text)",
+                textDecoration: "none",
+                padding: "0.75rem 1rem",
+                borderRadius: "8px",
+                transition: "background-color 0.2s ease",
+                fontWeight: 500,
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = "var(--bg3)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = "transparent")
+              }
+            >
+              {label}
+            </Link>
+          ))}
+
+          <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid var(--border)" }}>
+            <Link
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="btn-accent"
+              style={{ width: "100%", justifyContent: "center", fontSize: "0.9rem" }}
+            >
+              Audit gratuit →
+            </Link>
+          </div>
+        </div>
+      )}
+    </>
   );
 };

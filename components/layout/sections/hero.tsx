@@ -1,74 +1,174 @@
-"use client";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from "lucide-react";
 import Link from "next/link";
 
 export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="container w-full min-h-[80vh] flex items-center justify-center scroll-mt-20"
+      className="grid-bg"
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        paddingTop: "120px",
+        paddingBottom: "80px",
+      }}
     >
-      <div className="w-full max-w-screen-xl mx-auto py-16 md:py-20">
-        <div className="text-center space-y-8 md:space-y-10">
-          {/* Badge */}
-          <Badge variant="outline" className="text-sm py-2">
-            <span className="mr-2 text-primary">
-              <Rocket className="w-4 h-4" />
-            </span>
-            <span> Code production-ready • Livraison sous 3 semaines </span>
-          </Badge>
+      {/* Radial gradient background */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 80%, rgba(124,58,237,0.08) 0%, transparent 60%)",
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* Titre - Réduit */}
-          <div className="max-w-screen-lg mx-auto text-center pt-4 pb-6">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Applications modernes &
-              <span className="text-transparent px-2 bg-gradient-to-r from-emerald-400 to-purple-600 bg-clip-text">
-                Solutions IA
-              </span>
-              sur-mesure
-            </h1>
-          </div>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: "900px",
+          margin: "0 auto",
+          padding: "0 1.5rem",
+          textAlign: "center",
+        }}
+      >
+        {/* Badge pulsant */}
+        <div
+          className="animate-fade-up delay-100"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            marginBottom: "2rem",
+            padding: "0.4rem 1rem",
+            borderRadius: "999px",
+            border: "1px solid rgba(0, 212, 255, 0.3)",
+            backgroundColor: "rgba(0, 212, 255, 0.06)",
+            fontFamily: "var(--font-body)",
+            fontSize: "0.8rem",
+            color: "var(--accent)",
+            fontWeight: 500,
+            letterSpacing: "0.01em",
+          }}
+        >
+          <span
+            className="animate-pulse-dot"
+            style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: "var(--accent)",
+              flexShrink: 0,
+            }}
+          />
+          Studio IA & Dev · Applications sur-mesure · Agents IA
+        </div>
 
-          {/* Hook */}
-          <p className="max-w-screen-md mx-auto text-2xl md:text-3xl text-muted-foreground font-light pt-4">
-            Vos équipes perdent du temps sur des tâches répétitives ?
-          </p>
+        {/* H1 */}
+        <h1
+          className="animate-fade-up delay-200"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            fontSize: "clamp(2.4rem, 6vw, 4rem)",
+            lineHeight: 1.1,
+            letterSpacing: "-0.03em",
+            color: "var(--text)",
+            marginBottom: "1.5rem",
+          }}
+        >
+          Vos propres outils.{" "}
+          <span className="text-gradient-accent">Moins de friction. Plus de business.</span>
+        </h1>
 
-          {/* Solution */}
-          <div className="max-w-screen-sm mx-auto space-y-3 pt-2">
-            <p className="text-lg md:text-xl text-muted-foreground/90">
-              Nous créons des applications et agents IA qui automatisent vos
-              workflows métiers.
-            </p>
-            <p className="text-base md:text-lg text-gradient-kickup font-semibold">
-              React/TypeScript + IA générative · PME et ETI
-            </p>
-          </div>
+        {/* Sous-titre */}
+        <p
+          className="animate-fade-up delay-300"
+          style={{
+            fontFamily: "var(--font-body)",
+            fontWeight: 300,
+            fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
+            color: "var(--muted)",
+            maxWidth: "640px",
+            margin: "0 auto 2.5rem",
+            lineHeight: 1.7,
+          }}
+        >
+          On développe vos applications métier et agents IA sur-mesure. Vous possédez 100% de ce qu&apos;on livre — zéro dépendance, zéro abonnement SaaS inutile.
+        </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center pt-8">
-            <Button
-              asChild
-              size="lg"
-              className="w-full md:w-auto min-w-[240px] font-bold group/arrow bg-gradient-to-r from-emerald-500 to-purple-600 hover:from-emerald-600 hover:to-purple-700"
+        {/* CTAs */}
+        <div
+          className="animate-fade-up delay-400"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1rem",
+            justifyContent: "center",
+            marginBottom: "4rem",
+          }}
+        >
+          <Link href="#contact" className="btn-accent">
+            Réserver un audit gratuit →
+          </Link>
+          <Link href="#use-cases" className="btn-outline">
+            Voir nos réalisations
+          </Link>
+        </div>
+
+        {/* Stats */}
+        <div
+          className="animate-fade-up delay-500"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "0",
+          }}
+        >
+          {[
+            { value: "24h", label: "Réponse garantie" },
+            { value: "7+ ans", label: "d'expérience dev & IA" },
+            { value: "10+", label: "Projets livrés" },
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              style={{
+                padding: "1rem 2rem",
+                borderLeft: i > 0 ? "1px solid var(--border)" : "none",
+                textAlign: "center",
+              }}
             >
-              <Link href="#contact">
-                Audit gratuit 30min
-                <ArrowRight className="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              variant="secondary"
-              className="w-full md:w-auto min-w-[240px] font-bold"
-            >
-              <Link href="#services">Voir nos solutions</Link>
-            </Button>
-          </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 800,
+                  fontSize: "1.75rem",
+                  color: "var(--accent)",
+                  lineHeight: 1,
+                  marginBottom: "0.35rem",
+                }}
+              >
+                {stat.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.8rem",
+                  color: "var(--muted)",
+                  fontWeight: 400,
+                }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

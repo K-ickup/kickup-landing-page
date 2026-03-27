@@ -1,22 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Search, Code, Rocket, ArrowRight } from "lucide-react";
-
-interface ProcessStepProps {
-  step: number;
-  title: string;
-  description: string;
-  details: string[];
-  deliverable: string;
-  icon: React.ElementType;
-}
-
-const processSteps: ProcessStepProps[] = [
+const steps = [
   {
-    step: 1,
-    title: "Audit & Cadrage (Gratuit)",
+    number: "01",
+    title: "Audit gratuit 30min",
     description:
-      "Visio 30min pour comprendre vos besoins et identifier les quick wins.",
+      "On analyse vos besoins ensemble. Doc de cadrage + devis sous 48h, sans engagement.",
     details: [
       "Analyse de vos processus actuels",
       "Identification des gains de productivité",
@@ -24,108 +11,190 @@ const processSteps: ProcessStepProps[] = [
       "Proposition d'approche et planning",
     ],
     deliverable: "Document de cadrage + estimation budgétaire sous 48h",
-    icon: Search,
   },
   {
-    step: 2,
-    title: "Développement en sprints agiles",
-    description: "Livraisons progressives, démos hebdomadaires.",
+    number: "02",
+    title: "Sprints agiles 1-2 semaines",
+    description:
+      "Démo à chaque sprint, feedback continu. Vous voyez l'avancement chaque semaine.",
     details: [
       "Sprints de 1-2 semaines",
       "Démo à chaque sprint",
       "Feedback continu",
       "Ajustements en temps réel",
     ],
-    deliverable:
-      "Vous voyez l'avancement chaque semaine, pas de surprise en fin de projet.",
-    icon: Code,
+    deliverable: "Vous voyez l'avancement chaque semaine, pas de surprise.",
   },
   {
-    step: 3,
-    title: "Déploiement & Support",
-    description: "Mise en production accompagnée + support inclus.",
+    number: "03",
+    title: "Déploiement & support",
+    description:
+      "Mise en prod accompagnée, formation équipes, 3 mois support inclus.",
     details: [
       "Déploiement sur votre infrastructure",
       "Formation de vos équipes",
       "Documentation technique et utilisateur",
-      "Support & maintenance pendant 3 mois inclus",
+      "Support & maintenance 3 mois inclus",
     ],
     deliverable: "Vous êtes autonomes, mais on reste disponibles.",
-    icon: Rocket,
   },
 ];
 
 export const ProcessSection = () => {
   return (
-    <section id="process" className="container py-24 sm:py-32">
-      <div className="text-center mb-16">
-        <h2 className="text-lg text-primary mb-2 tracking-wider">
+    <section
+      id="process"
+      style={{
+        padding: "6rem 1.5rem",
+        maxWidth: "1100px",
+        margin: "0 auto",
+      }}
+    >
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "0.75rem",
+            fontWeight: 500,
+            color: "var(--accent)",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            marginBottom: "0.75rem",
+          }}
+        >
           Notre méthode
-        </h2>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+            color: "var(--text)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+          }}
+        >
           De l'idée à la production en 3 étapes
         </h2>
       </div>
 
-      <div className="relative max-w-5xl mx-auto">
-        {/* Connection line for desktop */}
-        <div className="hidden lg:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-purple-500 to-purple-600 -z-10"></div>
+      {/* 3 colonnes */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "1.25rem",
+        }}
+      >
+        {steps.map(({ number, title, description, details, deliverable }) => (
+          <div
+            key={number}
+            className="card-hover"
+            style={{
+              backgroundColor: "var(--bg2)",
+              borderRadius: "12px",
+              padding: "1.75rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+            }}
+          >
+            {/* Numéro */}
+            <div
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 900,
+                fontSize: "3.5rem",
+                color: "var(--muted)",
+                opacity: 0.2,
+                lineHeight: 1,
+                userSelect: "none",
+                marginBottom: "-0.5rem",
+              }}
+            >
+              {number}
+            </div>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-          {processSteps.map(
-            ({ step, title, description, details, deliverable, icon: Icon }) => (
-              <div key={step} className="relative">
-                <Card className="bg-card border-2 hover:shadow-xl transition-all duration-300 h-full">
-                  <CardHeader>
-                    {/* Step number badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge className="bg-gradient-to-r from-emerald-500 to-purple-600 text-white px-4 py-2 text-base font-bold">
-                        Étape {step}
-                      </Badge>
-                      <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-purple-600 rounded-full flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
+            <div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  fontSize: "1.1rem",
+                  color: "var(--text)",
+                  marginBottom: "0.5rem",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.875rem",
+                  color: "var(--muted)",
+                  lineHeight: 1.65,
+                }}
+              >
+                {description}
+              </p>
+            </div>
 
-                    <CardTitle className="text-xl mb-2">{title}</CardTitle>
-                    <p className="text-muted-foreground text-sm">
-                      {description}
-                    </p>
-                  </CardHeader>
+            {/* Details */}
+            <ul
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.4rem",
+                margin: 0,
+                padding: 0,
+                listStyle: "none",
+              }}
+            >
+              {details.map((detail) => (
+                <li
+                  key={detail}
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "0.5rem",
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.8rem",
+                    color: "var(--muted)",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "var(--accent)",
+                      flexShrink: 0,
+                      marginTop: "2px",
+                    }}
+                  >
+                    →
+                  </span>
+                  {detail}
+                </li>
+              ))}
+            </ul>
 
-                  <CardContent className="space-y-4">
-                    {/* Details list */}
-                    <ul className="space-y-2">
-                      {details.map((detail, index) => (
-                        <li
-                          key={index}
-                          className="flex items-start text-sm text-muted-foreground"
-                        >
-                          <ArrowRight className="w-4 h-4 text-emerald-500 mr-2 flex-shrink-0 mt-0.5" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Deliverable */}
-                    <div className="pt-4 border-t border-border">
-                      <p className="text-sm font-medium text-foreground">
-                        {deliverable}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Arrow between steps (desktop only) */}
-                {step < 3 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-8 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-8 h-8 text-primary" />
-                  </div>
-                )}
-              </div>
-            )
-          )}
-        </div>
+            {/* Deliverable */}
+            <div
+              style={{
+                borderTop: "1px solid var(--border)",
+                paddingTop: "1rem",
+                marginTop: "auto",
+                fontFamily: "var(--font-body)",
+                fontSize: "0.8rem",
+                fontWeight: 500,
+                color: "var(--text)",
+                fontStyle: "italic",
+              }}
+            >
+              {deliverable}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Icon } from "@/components/ui/icon";
 import { icons } from "lucide-react";
 
@@ -13,7 +12,7 @@ const benefitList: BenefitsProps[] = [
     icon: "Code2",
     title: "On code vraiment, pas de no-code",
     description:
-      "Développement sur-mesure React/TypeScript. Pas de templates Bubble/Webflow + plugin ChatGPT. Applications scalables et maintenables, intégration profonde à vos systèmes, propriété totale de votre code, évolutivité garantie sans refonte.",
+      "Développement sur-mesure. Pas de templates Bubble/Webflow + plugin ChatGPT. Applications scalables et maintenables, intégration profonde à vos systèmes, propriété totale de votre code, évolutivité garantie sans refonte.",
   },
   {
     icon: "Shield",
@@ -31,44 +30,127 @@ const benefitList: BenefitsProps[] = [
 
 export const BenefitsSection = () => {
   return (
-    <section id="benefits" className="container py-24 sm:py-32">
-      <div className="text-center mb-16">
-        <h2 className="text-lg text-primary mb-2 tracking-wider">
+    <section
+      id="benefits"
+      style={{
+        padding: "6rem 1.5rem",
+        maxWidth: "1100px",
+        margin: "0 auto",
+      }}
+    >
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: "0.75rem",
+            fontWeight: 500,
+            color: "var(--accent)",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            marginBottom: "0.75rem",
+          }}
+        >
           Différenciation
-        </h2>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        </p>
+        <h2
+          style={{
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+            color: "var(--text)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+          }}
+        >
           Pourquoi choisir Kickup ?
         </h2>
       </div>
 
-      <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+      {/* Grid 3 colonnes */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "1.25rem",
+        }}
+      >
         {benefitList.map(({ icon, title, description }, index) => (
-          <Card
+          <div
             key={title}
-            className="bg-muted/50 dark:bg-card hover:bg-background transition-all delay-75 group/number hover:shadow-lg hover:scale-105"
+            className="card-hover"
+            style={{
+              backgroundColor: "var(--bg2)",
+              borderRadius: "12px",
+              padding: "1.75rem",
+            }}
           >
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-purple-600 rounded-lg flex items-center justify-center mb-4">
-                  <Icon
-                    name={icon as keyof typeof icons}
-                    size={24}
-                    color="white"
-                    className="text-white"
-                  />
-                </div>
-                <span className="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
-                  0{index + 1}
-                </span>
+            {/* Icon + numéro */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                marginBottom: "1.25rem",
+              }}
+            >
+              <div
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "10px",
+                  background: "linear-gradient(135deg, #10b981 0%, #7c3aed 100%)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <Icon
+                  name={icon as keyof typeof icons}
+                  size={22}
+                  color="white"
+                />
               </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 800,
+                  fontSize: "3rem",
+                  color: "var(--muted)",
+                  opacity: 0.2,
+                  lineHeight: 1,
+                  userSelect: "none",
+                }}
+              >
+                0{index + 1}
+              </span>
+            </div>
 
-              <CardTitle className="text-lg">{title}</CardTitle>
-            </CardHeader>
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "1.05rem",
+                color: "var(--text)",
+                marginBottom: "0.65rem",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              {title}
+            </h3>
 
-            <CardContent className="text-muted-foreground text-sm leading-relaxed">
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.875rem",
+                color: "var(--muted)",
+                lineHeight: 1.65,
+              }}
+            >
               {description}
-            </CardContent>
-          </Card>
+            </p>
+          </div>
         ))}
       </div>
     </section>

@@ -1,147 +1,220 @@
-import { Separator } from "@/components/ui/separator";
-import { Mail, MapPin } from "lucide-react";
-import Link from "next/link";
+"use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export const FooterSection = () => {
   return (
-    <footer id="footer" className="container py-24 sm:py-32">
-      <div className="p-10 bg-card border border-secondary rounded-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-x-12 gap-y-8">
-          <div className="col-span-full xl:col-span-1">
-            <Link href="#" className="flex items-center mb-4">
-              <div className="w-12 h-12 relative">
-                <Image
-                  src="/kickup-logo-round.png"
-                  alt="Kickup"
-                  width={48}
-                  height={48}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+    <footer
+      id="footer"
+      style={{
+        padding: "3rem 1.5rem",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          backgroundColor: "var(--bg2)",
+          border: "1px solid var(--border)",
+          borderRadius: "16px",
+          padding: "2.5rem",
+        }}
+      >
+        {/* Grid links */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+            gap: "2rem",
+            marginBottom: "2rem",
+          }}
+        >
+          {/* Brand */}
+          <div style={{ gridColumn: "1 / -1", maxWidth: "260px" }}>
+            <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", marginBottom: "0.75rem" }}>
+              <Image
+                src="/kickup-logo-round.png"
+                alt="Kickup"
+                width={48}
+                height={48}
+                style={{ objectFit: "contain" }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 800,
+                  fontSize: "1.1rem",
+                  color: "var(--text)",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Kickup
+              </span>
             </Link>
-            <p className="text-muted-foreground text-sm mb-4">
-              Applications modernes & Solutions IA
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.8rem",
+                color: "var(--muted)",
+                lineHeight: 1.6,
+              }}
+            >
+              Applications web sur-mesure & Solutions IA pour PME et ETI.
             </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Nous aidons les PME et ETI à automatiser leurs processus métiers
-              grâce au développement web sur-mesure et à l'intelligence
-              artificielle.
-            </p>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-lg mb-2">Services</h3>
-            <div>
-              <Link
-                href="#services"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Développement web
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#services"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Solutions IA intégrées
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#services"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Agents autonomes
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#contact"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Audit gratuit
-              </Link>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <h3 className="font-bold text-lg mb-2">Ressources</h3>
-            <div>
-              <Link
-                href="#use-cases"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Cas clients
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#benefits"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Pourquoi Kickup
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#process"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Notre méthode
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#tech-stack"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                Technologies
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="#faq"
-                className="opacity-60 hover:opacity-100 text-sm transition-opacity"
-              >
-                FAQ
-              </Link>
+          {/* Services */}
+          <div>
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "0.85rem",
+                color: "var(--text)",
+                marginBottom: "1rem",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Services
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              {[
+                { href: "#services", label: "Développement web" },
+                { href: "#services", label: "Solutions IA intégrées" },
+                { href: "#services", label: "Agents autonomes" },
+                { href: "#contact", label: "Audit gratuit" },
+              ].map(({ href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.8rem",
+                    color: "var(--muted)",
+                    textDecoration: "none",
+                    transition: "color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="flex flex-col gap-3">
-            <h3 className="font-bold text-lg mb-2">Contact</h3>
-
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Mail className="w-4 h-4 text-primary flex-shrink-0" />
-              <Link
-                href="mailto:contact@kick-up.eu"
-                className="hover:text-foreground transition-colors"
-              >
-                contact@kick-up.eu
-              </Link>
+          {/* Ressources */}
+          <div>
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "0.85rem",
+                color: "var(--text)",
+                marginBottom: "1rem",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Ressources
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              {[
+                { href: "#use-cases", label: "Cas clients" },
+                { href: "#benefits", label: "Pourquoi Kickup" },
+                { href: "#process", label: "Notre méthode" },
+                { href: "#tech-stack", label: "Technologies" },
+                { href: "#faq", label: "FAQ" },
+              ].map(({ href, label }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.8rem",
+                    color: "var(--muted)",
+                    textDecoration: "none",
+                    transition: "color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                >
+                  {label}
+                </Link>
+              ))}
             </div>
+          </div>
 
-            <div className="flex items-start gap-2 text-sm text-muted-foreground">
-              <MapPin className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-              <div>
-                <p>Paris, France</p>
-                <p>Interventions Europe & remote</p>
-              </div>
+          {/* Contact */}
+          <div>
+            <h3
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: "0.85rem",
+                color: "var(--text)",
+                marginBottom: "1rem",
+                letterSpacing: "0.02em",
+              }}
+            >
+              Contact
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+              <Link
+                href="mailto:contact@kickup.studio"
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.8rem",
+                  color: "var(--muted)",
+                  textDecoration: "none",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+              >
+                contact@kickup.studio
+              </Link>
+              <span style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--muted)" }}>
+                Paris, France
+              </span>
+              <span style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--muted)" }}>
+                Interventions Europe & remote
+              </span>
             </div>
           </div>
         </div>
 
-        <Separator className="my-6" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <div>&copy; 2026 Kickup. Tous droits réservés.</div>
-
-          <div className="flex gap-6">
+        {/* Separator */}
+        <div style={{ borderTop: "1px solid var(--border)", paddingTop: "1.5rem" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "1rem",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.75rem",
+                color: "var(--muted)",
+              }}
+            >
+              © 2026 Kickup. Tous droits réservés.
+            </p>
             <Link
               href="/mentions-legales"
-              className="hover:text-foreground transition-colors"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "0.75rem",
+                color: "var(--muted)",
+                textDecoration: "none",
+                transition: "color 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
             >
               Mentions légales
             </Link>
