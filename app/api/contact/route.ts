@@ -55,7 +55,7 @@ Reçu le : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      from: process.env.RESEND_FROM_EMAIL || "contact@kickup.studio",
       to: [process.env.CONTACT_EMAIL || "contact@kickup.studio"],
       replyTo: email,
       subject: `Nouvelle demande : ${besoin} - ${entreprise}`,
