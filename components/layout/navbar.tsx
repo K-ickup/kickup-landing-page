@@ -67,7 +67,6 @@ export const Navbar = () => {
         {/* Desktop nav */}
         <nav
           style={{
-            display: "flex",
             alignItems: "center",
             gap: "2rem",
           }}

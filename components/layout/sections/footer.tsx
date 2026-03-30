@@ -175,7 +175,7 @@ export const FooterSection = () => {
                 contact@kickup.studio
               </Link>
               <span style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--muted)" }}>
-                Paris, France
+                Paris · Clermont-Ferrand
               </span>
               <span style={{ fontFamily: "var(--font-body)", fontSize: "0.8rem", color: "var(--muted)" }}>
                 Interventions Europe & remote

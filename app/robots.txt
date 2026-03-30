@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://kick-up.eu/sitemap.xml',
+    sitemap: 'https://www.kickup.studio/sitemap.xml',
   }
 }

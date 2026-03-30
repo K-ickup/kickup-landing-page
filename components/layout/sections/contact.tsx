@@ -205,7 +205,7 @@ export const ContactSection = () => {
               </div>
               <div>
                 <div style={{ fontFamily: "var(--font-body)", fontSize: "0.75rem", color: "var(--muted)", marginBottom: "0.1rem" }}>Localisation</div>
-                <div style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--text)", fontWeight: 500 }}>Paris, France · Remote Europe</div>
+                <div style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--text)", fontWeight: 500 }}>Paris · Clermont-Ferrand · Remote Europe</div>
               </div>
             </div>
 

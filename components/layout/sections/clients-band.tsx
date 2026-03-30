@@ -36,35 +36,42 @@ export const ClientsBand = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          gap: "64px",
+          gap: "20px",
           flexWrap: "wrap",
         }}
       >
         {logos.map((logo) => (
-          <div key={logo.alt} className="logo-item" style={{ lineHeight: 0 }}>
+          <div
+            key={logo.alt}
+            className="logo-item"
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "background-color 0.2s ease",
+            }}
+          >
             <Image
               src={logo.src}
               alt={logo.alt}
-              width={140}
-              height={90}
+              width={90}
+              height={50}
+              className="logo-img"
               style={{
                 objectFit: "contain",
-                width: "auto",
-                height: "90px",
+                height: "60px",
               }}
             />
           </div>
         ))}
       </div>
       <style>{`
-        .logo-item {
-          transition: opacity 0.3s ease;
-        }
         .logo-item:hover {
-          opacity: 1;
+          background-color: #e0e0e0 !important;
         }
       `}</style>
     </div>

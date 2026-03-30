@@ -22,8 +22,9 @@ const techStack: TechCategory[] = [
   {
     category: "Intelligence Artificielle",
     technologies: [
-      "OpenAI (GPT-5)",
+      "OpenAI (GPT-4o)",
       "Anthropic (Claude)",
+      "Mistral AI",
       "LangChain",
       "LlamaIndex",
       "Mastra",

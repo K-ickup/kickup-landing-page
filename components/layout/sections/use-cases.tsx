@@ -36,6 +36,18 @@ const useCases = [
     ],
   },
   {
+    badge: "📧",
+    badgeColor: "#f43f5e",
+    title: "Automatisation email",
+    description:
+      "Agent IA qui automatise vos séquences de prospection email — personnalisation, envoi, suivi des réponses.",
+    metrics: [
+      { value: "-5h/sem.", label: "prospection manuelle" },
+      { value: "×3", label: "volume prospects" },
+      { value: "2-3 sem.", label: "mise en prod" },
+    ],
+  },
+  {
     badge: "🏭",
     badgeColor: "#f59e0b",
     title: "Outils métier industrie",
@@ -101,114 +113,116 @@ export const UseCasesSection = () => {
           </p>
         </div>
 
-        {/* Grid 2x2 */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "1.25rem",
-          }}
-        >
-          {useCases.map(({ badge, badgeColor, title, description, metrics }) => (
-            <div
-              key={title}
-              className="card-hover"
-              style={{
-                backgroundColor: "var(--bg)",
-                borderRadius: "12px",
-                padding: "1.75rem",
-                display: "flex",
-                flexDirection: "column",
-              }}
-            >
-              {/* Badge */}
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-6 gap-5">
+          {useCases.map(
+            ({ badge, badgeColor, title, description, metrics }, i) => (
               <div
+                key={title}
+                className={`card-hover ${
+                  i === 3
+                    ? "sm:[grid-column:2/4]"
+                    : i === 4
+                    ? "sm:[grid-column:4/6]"
+                    : "sm:col-span-2"
+                }`}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  marginBottom: "1rem",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "1.5rem",
-                    lineHeight: 1,
-                  }}
-                >
-                  {badge}
-                </span>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 700,
-                    fontSize: "1.05rem",
-                    color: "var(--text)",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {title}
-                </h3>
-              </div>
-
-              <p
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: "0.875rem",
-                  color: "var(--muted)",
-                  lineHeight: 1.65,
-                  marginBottom: "1.5rem",
-                  flex: 1,
-                }}
-              >
-                {description}
-              </p>
-
-              {/* Metrics */}
-              <div
-                style={{
-                  borderTop: "1px solid var(--border)",
-                  paddingTop: "1.25rem",
+                  backgroundColor: "var(--bg)",
+                  borderRadius: "12px",
+                  padding: "1.75rem",
                   display: "flex",
-                  gap: "0",
+                  flexDirection: "column",
                 }}
               >
-                {metrics.map((m, i) => (
-                  <div
-                    key={m.label}
+                {/* Badge */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <span
                     style={{
-                      flex: 1,
-                      textAlign: "center",
-                      paddingLeft: i > 0 ? "1rem" : 0,
-                      borderLeft: i > 0 ? "1px solid var(--border)" : "none",
+                      fontSize: "1.5rem",
+                      lineHeight: 1,
                     }}
                   >
+                    {badge}
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 700,
+                      fontSize: "1.05rem",
+                      color: "var(--text)",
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {title}
+                  </h3>
+                </div>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "0.875rem",
+                    color: "var(--muted)",
+                    lineHeight: 1.65,
+                    marginBottom: "1.5rem",
+                    flex: 1,
+                  }}
+                >
+                  {description}
+                </p>
+
+                {/* Metrics */}
+                <div
+                  style={{
+                    borderTop: "1px solid var(--border)",
+                    paddingTop: "1.25rem",
+                    display: "flex",
+                    gap: "0",
+                  }}
+                >
+                  {metrics.map((m, i) => (
                     <div
+                      key={m.label}
                       style={{
-                        fontFamily: "var(--font-display)",
-                        fontWeight: 800,
-                        fontSize: "1.25rem",
-                        color: badgeColor,
-                        lineHeight: 1,
-                        marginBottom: "0.25rem",
+                        flex: 1,
+                        textAlign: "center",
+                        paddingLeft: i > 0 ? "1rem" : 0,
+                        borderLeft: i > 0 ? "1px solid var(--border)" : "none",
                       }}
                     >
-                      {m.value}
+                      <div
+                        style={{
+                          fontFamily: "var(--font-display)",
+                          fontWeight: 800,
+                          fontSize: "1.25rem",
+                          color: badgeColor,
+                          lineHeight: 1,
+                          marginBottom: "0.25rem",
+                        }}
+                      >
+                        {m.value}
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: "var(--font-body)",
+                          fontSize: "0.7rem",
+                          color: "var(--muted)",
+                        }}
+                      >
+                        {m.label}
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        fontFamily: "var(--font-body)",
-                        fontSize: "0.7rem",
-                        color: "var(--muted)",
-                      }}
-                    >
-                      {m.label}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ),
+          )}
         </div>
       </div>
     </section>

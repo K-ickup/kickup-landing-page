@@ -1,12 +1,5 @@
 const testimonials = [
   {
-    initials: "MB",
-    name: "Martin Buriez",
-    role: "Développeur full-stack · Norauto International",
-    quote:
-      "Pendant les six mois de notre collaboration chez Norauto, Jeremy a joué un rôle essentiel. Ses compétences en développement fullstack m'ont été d'une grande aide. Je le recommande vivement.",
-  },
-  {
     initials: "LS",
     name: "Lilian Szalkowski",
     role: "Ingénieur développement · UNIS",
@@ -16,7 +9,7 @@ const testimonials = [
   {
     initials: "KG",
     name: "Kévin Gallet",
-    role: "Freelance Senior Developer",
+    role: "Senior Software Engineer · Norauto International",
     quote:
       "Jérémy a su être à l'écoute et force de proposition. Son implication fait qu'il est très agréable de travailler ensemble. Ce sera un réel plaisir de collaborer à nouveau.",
   },

@@ -135,7 +135,7 @@ export const HeroSection = () => {
           {[
             { value: "24h", label: "Réponse garantie" },
             { value: "7+ ans", label: "d'expérience dev & IA" },
-            { value: "10+", label: "Projets livrés" },
+            { value: "15+", label: "Projets livrés" },
           ].map((stat, i) => (
             <div
               key={stat.label}
