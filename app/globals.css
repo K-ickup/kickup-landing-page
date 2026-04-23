@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-anthracite: #2a2a28;
+  --color-anthracite-alt: #232321;
+  --color-anthracite-deep: #1a1a18;
+  --color-craie: #f8f8f6;
+  --color-craie-dim: #c8c5bc;
+  --color-electric: #1a5cff;
+  --color-electric-dark: #1248d9;
+  --color-muted: #7a7870;
+
+  /* Typography */
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+/* CSS custom properties for inline styles */
+:root {
+  --bg: #f8f8f6;
+  --bg-alt: #f0f0ee;
+  --text: #2a2a28;
+  --text-muted: #6b6960;
+  --accent: #1a5cff;
+  --accent-dark: #1248d9;
+  --border: rgba(42, 42, 40, 0.1);
+  --border-hover: rgba(42, 42, 40, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: #1a5cff33;
+  color: #f8f8f6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c1b8;
+  border-radius: 3px;
+}
+
+/* Hamburger: mobile only */
+@media (min-width: 1024px) {
+  .hamburger-btn {
+    display: none !important;
+  }
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid #1a5cff;
+  outline-offset: 2px;
+}
+
+/* Contact form — responsive grid */
+@media (max-width: 540px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Contact form — placeholder color on dark background */
+.contact-field::placeholder {
+  color: rgba(248, 248, 246, 0.35);
+}
+
+/* Contact form — select option text on dark background */
+#contact select option {
+  background-color: #2e2e2c;
+  color: #f8f8f6;
+}
