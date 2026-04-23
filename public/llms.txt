@@ -1,0 +1,15 @@
+# Kickup
+
+Kickup est un studio de développement sur-mesure, IA et intégration systèmes pour PME et ETI, basé à Paris et Clermont-Ferrand.
+
+Fondateur & CTO : Jérémy Dumas
+Site : https://www.kickup.studio
+Contact : contact@kickup.studio
+
+## Services
+- Développement d'applications métier sur-mesure
+- Intelligence artificielle appliquée (automatisation, agents métier)
+- Intégration systèmes (ERP, CRM, connecteurs sur-mesure)
+
+## Positionnement
+Studio indépendant, experts techniques seniors, livrables en production. Pas une ESN, pas une agence anonyme.
