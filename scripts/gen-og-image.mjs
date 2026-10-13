@@ -50,7 +50,7 @@ const SVG = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"
   <text x="240" y="400"
     font-family="system-ui, -apple-system, Helvetica, Arial, sans-serif"
     font-size="28" font-weight="400" fill="#94A3B8" letter-spacing="-0.5">
-    pour PME et ETI
+    pour TPE et PME
   </text>
 
   <!-- Domain badge -->

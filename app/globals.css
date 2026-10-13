@@ -103,3 +103,14 @@ body {
   background-color: #2e2e2c;
   color: #f8f8f6;
 }
+
+/* Calendly inline embed: Calendly stacks its layout on narrow screens,
+   so mobile needs more height to avoid a nested scroll */
+.calendly-embed {
+  height: 1080px;
+}
+@media (min-width: 1024px) {
+  .calendly-embed {
+    height: 720px;
+  }
+}

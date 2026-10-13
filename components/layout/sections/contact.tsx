@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { Mail, MapPin, Clock, CheckCircle2, Loader2 } from "lucide-react";
 import Link from "next/link";
+import { BESOIN_OPTIONS, TAILLE_OPTIONS } from "@/lib/contact-options";
 
 // ─── Schema ───────────────────────────────────────────────────────────────────
 
@@ -20,8 +21,9 @@ const contactSchema = z.object({
   nom:        z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
   email:      z.string().email("Email invalide"),
   entreprise: z.string().optional(),
+  taille:     z.enum(TAILLE_OPTIONS).optional(),
   telephone:  z.string().optional(),
-  besoin:     z.string().min(1, "Veuillez sélectionner un type de besoin"),
+  besoin:     z.enum(BESOIN_OPTIONS, { message: "Veuillez sélectionner un type de besoin" }),
   message:    z.string().optional(),
   consent:    z.boolean().refine((v) => v === true, {
     message: "Vous devez accepter d'être contacté",
@@ -312,7 +314,7 @@ export const ContactSection = () => {
                 {/* Email */}
                 <div>
                   <label htmlFor="email" style={labelStyle}>
-                    Email professionnel <span style={{ color: C.error }}>*</span>
+                    Email <span style={{ color: C.error }}>*</span>
                   </label>
                   <input
                     id="email"
@@ -338,6 +340,35 @@ export const ContactSection = () => {
                   />
                 </div>
 
+                {/* Taille de l'entreprise */}
+                <div>
+                  <label style={labelStyle}>
+                    Taille de l&apos;entreprise{" "}
+                    <span style={{ color: C.muted, fontWeight: 400 }}>(optionnel)</span>
+                  </label>
+                  <Select
+                    value={watch("taille") ?? ""}
+                    onValueChange={(v) =>
+                      setValue("taille", v as ContactFormData["taille"])
+                    }
+                  >
+                    <SelectTrigger style={inputStyle}>
+                      <SelectValue placeholder="Nombre de personnes" />
+                    </SelectTrigger>
+                    <SelectContent
+                      style={{
+                        backgroundColor: "#232321",
+                        border:          `1px solid ${C.cardBorder}`,
+                        borderRadius:    8,
+                      }}
+                    >
+                      {TAILLE_OPTIONS.map((option) => (
+                        <SelectItem key={option} value={option}>{option}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
                 {/* Type de besoin */}
                 <div>
                   <label style={labelStyle}>
@@ -346,9 +377,9 @@ export const ContactSection = () => {
                   {/* hidden input so RHF tracks the field */}
                   <input type="hidden" {...register("besoin")} />
                   <Select
-                    value={watch("besoin")}
+                    value={watch("besoin") ?? ""}
                     onValueChange={(v) =>
-                      setValue("besoin", v, { shouldValidate: isSubmitted })
+                      setValue("besoin", v as ContactFormData["besoin"], { shouldValidate: isSubmitted })
                     }
                   >
                     <SelectTrigger
@@ -366,10 +397,9 @@ export const ContactSection = () => {
                         borderRadius:    8,
                       }}
                     >
-                      <SelectItem value="Développement d'application web">Développement d&apos;application web</SelectItem>
-                      <SelectItem value="Agent IA / Automatisation">Agent IA / Automatisation</SelectItem>
-                      <SelectItem value="Intégration systèmes / Connexion d'outils">Intégration systèmes / Connexion d&apos;outils</SelectItem>
-                      <SelectItem value="Autre / Je ne sais pas encore">Autre / Je ne sais pas encore</SelectItem>
+                      {BESOIN_OPTIONS.map((option) => (
+                        <SelectItem key={option} value={option}>{option}</SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   {errors.besoin && <p style={errorStyle}>{errors.besoin.message}</p>}

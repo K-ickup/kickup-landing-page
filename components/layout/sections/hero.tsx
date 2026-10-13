@@ -133,7 +133,7 @@ export function HeroSection() {
           style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}
         >
           <Link
-            href="#contact"
+            href="/diagnostic-ia"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -157,7 +157,7 @@ export function HeroSection() {
               e.currentTarget.style.transform = "translateY(0)";
             }}
           >
-            Parlons de votre projet
+            Réserver mon diagnostic IA gratuit
             <svg
               width="16"
               height="16"
@@ -176,7 +176,7 @@ export function HeroSection() {
           </Link>
 
           <Link
-            href="#missions"
+            href="#contact"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -198,7 +198,7 @@ export function HeroSection() {
               e.currentTarget.style.borderColor = "var(--border)";
             }}
           >
-            Notre approche
+            Nous contacter
           </Link>
         </motion.div>
 

@@ -20,8 +20,8 @@ const PAIN_POINTS = [
   },
   {
     number: "04",
-    title: "Vous dépendez de prestataires qui pilotent à votre place",
-    body: "Sans interlocuteur technique de confiance, les décisions structurantes sont prises par des tiers dont les intérêts ne sont pas toujours alignés avec les vôtres.",
+    title: "Des outils internes fragiles",
+    body: "Le fichier Excel ou l'appli maison dont tout dépend, et que plus personne ne sait faire évoluer.",
   },
 ];
 

@@ -93,11 +93,11 @@ export function FounderSection() {
                 lineHeight: 1.7,
               }}
             >
-              J&rsquo;ai fondé Kickup avec une conviction : les PME et ETI
+              J&rsquo;ai fondé Kickup avec une conviction : les TPE et PME
               méritent le même niveau d&rsquo;exigence que les grands groupes,
               avec la réactivité et la proximité qu&rsquo;une grande structure
-              ne peut pas offrir. Avec moi, des experts techniques partageant
-              cette exigence et cet engagement.
+              ne peut pas offrir. Avec moi, un réseau d&rsquo;experts techniques
+              qui partagent cette exigence et cet engagement.
             </p>
           </motion.div>
         </div>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { BESOIN_OPTIONS, TAILLE_OPTIONS } from "@/lib/contact-options";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,7 +8,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: NextRequest) {
   try {
-    const { nom, email, entreprise, telephone, besoin, message, consent } =
+    const { nom, email, entreprise, taille, telephone, besoin, message, consent } =
       await req.json();
 
     if (
@@ -26,13 +27,22 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
     }
 
+    if (!(BESOIN_OPTIONS as readonly string[]).includes(besoin)) {
+      return NextResponse.json({ error: "Type de besoin invalide" }, { status: 400 });
+    }
+
+    if (taille && !(TAILLE_OPTIONS as readonly string[]).includes(taille)) {
+      return NextResponse.json({ error: "Taille d'entreprise invalide" }, { status: 400 });
+    }
+
     const emailContent = `Nouvelle demande de contact depuis le site Kickup
 
 📋 INFORMATIONS CLIENT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Nom : ${nom}
 Email : ${email}
-Entreprise : ${entreprise}
+Entreprise : ${entreprise || "Non renseignée"}
+Taille de l'entreprise : ${taille || "Non renseignée"}
 Téléphone : ${telephone || "Non renseigné"}
 
 🎯 BESOIN
@@ -50,7 +60,7 @@ Reçu le : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}`;
       from: process.env.RESEND_FROM_EMAIL ?? "contact@kickup.studio",
       to: [process.env.CONTACT_EMAIL ?? "contact@kickup.studio"],
       replyTo: email,
-      subject: `Nouveau contact : ${nom}${entreprise ? ` — ${entreprise}` : ""}`,
+      subject: `Nouveau contact : ${nom}${entreprise ? ` · ${entreprise}` : ""}`,
       text: emailContent,
     });
 

@@ -73,7 +73,7 @@ export function FooterSection() {
                 maxWidth: 260,
               }}
             >
-              Développement sur-mesure, IA et intégration pour PME et ETI.
+              Développement sur-mesure, IA appliquée et intégration pour TPE et PME.
             </p>
           </div>
 
@@ -81,16 +81,16 @@ export function FooterSection() {
           <div>
             <p style={colTitleStyle}>Nos missions</p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.625rem" }}>
-              {["Applications métier", "Automatisation", "Connexion systèmes"].map((item) => (
-                <a
+              {["Intégration IA", "Industrialisation d'outils internes", "Connexion systèmes"].map((item) => (
+                <Link
                   key={item}
-                  href="#missions"
+                  href="/#missions"
                   style={linkStyle}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
                 >
                   {item}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

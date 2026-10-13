@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const CASES = [
   {
-    industry: "ETI Industrielle",
-    context: "200 salariés · Clermont-Ferrand",
+    industry: "PME industrielle",
+    context: "40 salariés · Clermont-Ferrand",
     challenge:
       "Reporting qualité manuel : 3h de saisie par jour sur des tableurs partagés, erreurs fréquentes, zéro visibilité temps réel.",
     solution:
@@ -14,18 +14,18 @@ const CASES = [
     tag: "Dev sur-mesure",
   },
   {
-    industry: "Scale-up SaaS",
-    context: "30 salariés · Paris",
+    industry: "Éditeur de logiciel",
+    context: "12 salariés · Paris",
     challenge:
       "Support client submergé. 60% des tickets concernaient les mêmes questions récurrentes, épuisant l'équipe.",
     solution:
-      "Assistant IA intégré directement dans le produit. RAG sur la base documentaire, escalade automatique vers humain si besoin.",
+      "Intégré directement dans le produit : un assistant qui répond à partir de la documentation, et passe la main à un humain si besoin.",
     result: "−60% de tickets manuels",
     tag: "IA intégrée",
   },
   {
-    industry: "PME Distribution",
-    context: "120 salariés · Grenoble",
+    industry: "PME de distribution",
+    context: "35 salariés · Grenoble",
     challenge:
       "ERP, CRM et système de caisse non connectés. Les équipes ressaisissaient manuellement les commandes entre trois outils : erreurs fréquentes, délais, perte d'information.",
     solution:
@@ -85,7 +85,7 @@ export function CasesSection() {
               lineHeight: 1.65,
             }}
           >
-            Cas clients anonymisés. Mêmes problématiques, résultats mesurables.
+            Exemples de missions représentatives de notre approche.
           </p>
         </motion.div>
 

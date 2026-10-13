@@ -1,25 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const SERVICES = [
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M8 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2h-2M8 3a2 2 0 012-2h4a2 2 0 012 2M8 3h8M12 12h4M12 16h4M8 12h.01M8 16h.01"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
-    label: "Applications métier",
-    title: "Vos équipes perdent du temps sur des tâches qui mériteraient un vrai outil.",
-    body: "Applications métier, interfaces opérationnelles, outils sur-mesure adaptés à vos process. Livré en production, maintenu dans le temps, documenté.",
-    items: ["Applications métier", "Interfaces opérationnelles", "Livraison et maintenance"],
-  },
+type Service = {
+  icon: React.ReactNode;
+  label: string;
+  title: string;
+  body: string;
+  items: string[];
+  cta?: { href: string; label: string };
+};
+
+const SERVICES: Service[] = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -32,10 +25,28 @@ const SERVICES = [
         />
       </svg>
     ),
-    label: "Automatisation",
+    label: "Intégration IA",
     title: "Vos process répétitifs à fort volume, on les automatise.",
-    body: "Automatisation de process, agents métier, analyse documentaire. Des solutions déployées dans votre environnement. Pas des POC qui restent en démonstration.",
+    body: "Automatisation de process, agents métier, analyse documentaire. Des solutions déployées dans votre quotidien, pas des démonstrations.",
     items: ["Automatisation de process", "Agents métier", "Analyse documentaire"],
+    cta: { href: "/diagnostic-ia", label: "Faire le diagnostic gratuit" },
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M8 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2h-2M8 3a2 2 0 012-2h4a2 2 0 012 2M8 3h8M12 12h4M12 16h4M8 12h.01M8 16h.01"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    label: "Industrialisation d'outils internes",
+    title: "Vos équipes perdent du temps sur des tâches qui mériteraient un vrai outil.",
+    body: "Vos fichiers Excel, scripts et applis maison deviennent des outils fiables, sécurisés et connectés au reste de votre système.",
+    items: ["Fichiers Excel et applis maison", "Sécurisation et reprise", "Connexion au reste du système"],
   },
   {
     icon: (
@@ -240,6 +251,37 @@ export function ServicesSection() {
                   </li>
                 ))}
               </ul>
+
+              {/* CTA */}
+              {service.cta && (
+                <Link
+                  href={service.cta.href}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.375rem",
+                    fontSize: "0.9rem",
+                    fontWeight: 600,
+                    color: "var(--accent)",
+                    textDecoration: "none",
+                    letterSpacing: "-0.01em",
+                    transition: "color 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent-dark)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                >
+                  {service.cta.label}
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M3 8H13M9 4L13 8L9 12"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              )}
             </motion.article>
           ))}
         </div>

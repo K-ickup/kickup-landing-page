@@ -10,16 +10,16 @@ const inter = Inter({
 });
 
 const TITLE =
-  "Kickup | Développement sur-mesure, IA et intégration pour PME et ETI | Paris · Clermont-Ferrand";
+  "Kickup | Développement sur-mesure, IA appliquée et intégration pour TPE et PME | Paris · Clermont-Ferrand";
 const DESCRIPTION =
-  "Développement sur-mesure, IA appliquée et intégration systèmes pour PME et ETI. Kickup, expertise technique senior à Paris et Clermont-Ferrand.";
+  "Développement sur-mesure, IA appliquée et intégration pour TPE et PME. Kickup, expertise technique senior à Paris et Clermont-Ferrand.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.kickup.studio"),
   title: TITLE,
   description: DESCRIPTION,
   keywords:
-    "développement sur-mesure, intégration systèmes, agents IA, ERP CRM, React, TypeScript, PME, ETI, Paris, Clermont-Ferrand",
+    "développement sur-mesure, intégration systèmes, agents IA, ERP CRM, React, TypeScript, TPE, PME, diagnostic IA, Paris, Clermont-Ferrand",
   authors: [{ name: "Kickup" }],
   icons: {
     icon: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Kickup - Développement sur-mesure, IA et intégration pour PME et ETI",
+        alt: "Kickup, développement sur-mesure, IA appliquée et intégration pour TPE et PME",
       },
     ],
   },

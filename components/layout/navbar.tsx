@@ -26,6 +26,14 @@ function KickupLogo() {
   );
 }
 
+const NAV_LINKS = [
+  { href: "/#constat", label: "Le constat" },
+  { href: "/#missions", label: "Nos missions" },
+  { href: "/#approche", label: "Notre approche" },
+  { href: "/#realisations", label: "Réalisations" },
+  { href: "/#contact", label: "Contact" },
+];
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -75,12 +83,7 @@ export function Navbar() {
           className="hidden lg:flex"
           style={{ alignItems: "center", gap: "2rem" }}
         >
-          {[
-            { href: "#constat", label: "Le constat" },
-            { href: "#missions", label: "Nos missions" },
-            { href: "#approche", label: "Notre approche" },
-            { href: "#realisations", label: "Réalisations" },
-          ].map(({ href, label }) => (
+          {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -106,7 +109,7 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <Link
-          href="#contact"
+          href="/diagnostic-ia"
           className="hidden sm:inline-flex"
           style={{
             alignItems: "center",
@@ -128,7 +131,7 @@ export function Navbar() {
             (e.currentTarget.style.backgroundColor = "var(--accent)")
           }
         >
-          Contact
+          Diagnostic IA gratuit
         </Link>
 
         {/* Mobile hamburger */}
@@ -196,12 +199,7 @@ export function Navbar() {
           }}
           className="lg:hidden"
         >
-          {[
-            { href: "#constat", label: "Le constat" },
-            { href: "#missions", label: "Nos missions" },
-            { href: "#approche", label: "Notre approche" },
-            { href: "#realisations", label: "Réalisations" },
-          ].map(({ href, label }) => (
+          {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -220,7 +218,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="#contact"
+            href="/diagnostic-ia"
             onClick={() => setMenuOpen(false)}
             style={{
               display: "flex",
@@ -235,7 +233,7 @@ export function Navbar() {
               textDecoration: "none",
             }}
           >
-            Parlons de votre projet
+            Diagnostic IA gratuit
           </Link>
         </div>
       )}
