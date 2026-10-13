@@ -10,7 +10,7 @@ const STEPS = [
   },
   {
     title: "Une proposition chiffrée, sous quelques jours.",
-    body: "Un seul cas d'usage, ce qu'il vous fait gagner en euros, ce qu'il coûte et le délai. Vous décidez sur pièces.",
+    body: "Un seul cas d'usage, ce qu'il vous fait gagner en euros, ce qu'il coûte et le délai. Vous décidez ensuite, avec tous les éléments en main.",
   },
   {
     title: "Votre premier usage IA, livré en quelques semaines.",
